@@ -1,23 +1,11 @@
-.friendItem {
-    border: 2px solid black;
+button {
+    background-color: rgb(224, 221, 221);
+    
+    border: 1px solid black;
     border-radius: 4px;
-    min-width: 100px;
-    align-self: center;
+    
+    
     align-content: center;
-    padding: 30px;
+    padding: 10px;
 }
 
-.green {
-    color: green;
-    font-weight: 500;
-}
-
-.red {
-    color: red;
-    font-weight: 500;
-}
-
-.friendName {
-    font-weight: 500;
-    font-size: 20px;
-}

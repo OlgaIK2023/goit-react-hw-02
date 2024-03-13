@@ -1,11 +1,16 @@
-// import css from "./FriendListItem.module.css";
+import "./Options.module.css";
 // import clsx from "clsx"
 
 
 
 const Options = () => {
   return (
-    <div>Options</div>
+    <div>
+      <button>Good</button>
+      <button>Neutral</button>
+      <button>Bad</button>
+      <button>Reset</button>
+    </div>
   )
 }
 
