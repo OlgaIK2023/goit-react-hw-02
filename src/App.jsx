@@ -9,6 +9,8 @@ import Options from "./components/Options/Options.jsx";
 
 const App = () => {
 
+  const initialFeedback = {good: 0, bad: 0, neutral: 0}
+
 const handleLogOptions = (optionName) => {
   console.log("optionName: ", optionName);
 
@@ -18,7 +20,7 @@ const handleLogOptions = (optionName) => {
     <>
       <Description />
       <Options handleLogOptions = {handleLogOptions}/>
-      <Feedback options = {{good: 3, bad: 2, neutral: 1}}/>
+      <Feedback options = {initialFeedback}/>
 
       
     </>
