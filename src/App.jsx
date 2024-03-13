@@ -22,7 +22,7 @@ const [counter, setCounter]=useState(0);
 
 const handleIncrementCounter = () => {
   setCounter (counter +1);
-  console.log(counter);
+  
 }
 
 
