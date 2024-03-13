@@ -3,12 +3,12 @@ import "./Options.module.css";
 
 
 
-const Options = () => {
+const Options = ({handleLogOptions}) => {
   return (
     <div>
-      <button>Good</button>
-      <button>Neutral</button>
-      <button>Bad</button>
+      <button onClick = {() => handleLogOptions("Good")}>Good</button>
+      <button onClick = {() => handleLogOptions("Neutral")}>Neutral</button>
+      <button onClick = {() => handleLogOptions("Bad")}>Bad</button>
       <button>Reset</button>
     </div>
   )

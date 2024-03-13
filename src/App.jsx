@@ -8,10 +8,16 @@ import Options from "./components/Options/Options.jsx";
 //APP code below
 
 const App = () => {
+
+const handleLogOptions = (optionName) => {
+  console.log("optionName: ", optionName);
+
+};
+
   return (
     <>
       <Description />
-      <Options />
+      <Options handleLogOptions = {handleLogOptions}/>
       <Feedback />
 
       
