@@ -18,7 +18,7 @@ const handleLogOptions = (optionName) => {
     <>
       <Description />
       <Options handleLogOptions = {handleLogOptions}/>
-      <Feedback />
+      <Feedback options = {{good: 3, bad: 2, neutral: 1}}/>
 
       
     </>
