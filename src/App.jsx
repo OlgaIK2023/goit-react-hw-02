@@ -1,27 +1,20 @@
-import FriendList from "./components/FriendList/FriendList.jsx";
-import Profile from "./components/Profile/Profile.jsx";
-import TransactionsHistory from "./components/TransactionsHistory/TransactionsHistory.jsx";
+import Description from "./components/Description/Description.jsx";
+import Feedback from "./components/Feedback/Feedback.jsx";
+import Options from "./components/Options/Options.jsx";
 
-import userData from "./userData.json";
-import friends from "./friends.json";
-import transactions from "./transactions.json";
+
+
 
 //APP code below
 
 const App = () => {
   return (
     <>
-      <Profile
-        name={userData.username}
-        tag={userData.tag}
-        location={userData.location}
-        image={userData.avatar}
-        stats={userData.stats}
-      />
+      <Description />
+      <Options />
+      <Feedback />
 
-      <FriendList friends={friends} />
-
-      <TransactionsHistory items={transactions} />
+      
     </>
   );
 };
