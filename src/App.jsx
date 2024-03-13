@@ -1,6 +1,7 @@
 import Description from "./components/Description/Description.jsx";
 import Feedback from "./components/Feedback/Feedback.jsx";
 import Options from "./components/Options/Options.jsx";
+import { useState } from "react";
 
 
 
@@ -15,6 +16,15 @@ const handleLogOptions = (optionName) => {
   console.log("optionName: ", optionName);
 
 };
+
+
+const [counter, setCounter]=useState(0);
+
+const handleIncrementCounter = () => {
+  setCounter (counter +1);
+  console.log(counter);
+}
+
 
   return (
     <>
