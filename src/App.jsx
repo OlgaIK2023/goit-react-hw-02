@@ -27,13 +27,14 @@ const handleIncrementCounter = () => {
 
 
   return (
-    <>
+    <div>
+      <button onClick = {handleIncrementCounter}> Counter: {counter}</button>
       <Description />
       <Options handleLogOptions = {handleLogOptions}/>
       <Feedback options = {initialFeedback}/>
 
       
-    </>
+    </div>
   );
 };
 
