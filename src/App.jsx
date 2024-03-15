@@ -8,27 +8,60 @@ import Notification from "./components/Notification/Notification.jsx";
 
 //APP code below
 
+const initialOptions = { good: 0, bad: 0, neutral: 0 };
+
 function App() {
-  const [options, setOptions] = useState({ good: 0, bad: 0, neutral: 0 });
-  const [isVisibleFeedback, setVisibleFeedback] = useState(false);
+  const [options, setOptions] = useState(() => {
+    const stringifiedOptions = localStorage.getItem("optionsValues");
+    const parsedOptions = JSON.parse(stringifiedOptions) ?? initialOptions;
+    return parsedOptions;
+  });
+
+  // const [options, setOptions] = useState({ good: 0, bad: 0, neutral: 0 });
+
+  const [isVisibleFeedback, setIsVisibleFeedback] = useState(false);
 
   const handleLogOptions = (optionName) => {
     setOptions({ ...options, [optionName]: options[optionName] + 1 });
   };
 
-  // const handleLogFirstOption = () => {
-  //   setIsVisibleFeedback(true); // Встановлюємо стан isVisibleFeedback в true
-  // };
+  // const onToggleFeedbackVisibility = () => {
+  //  setIsVisibleFeedback(!isVisibleFeedback);
+  //  };
+  //  // Встановлюємо стан isVisibleFeedback в true
+
+  const handleReset = () => {
+    setOptions(initialOptions);
+  };
+
+  const onToggleFeedbackVisibility = () => {
+    setIsVisibleFeedback(!isVisibleFeedback);
+  };
 
   const optionsTotal = options.good + options.bad + options.neutral;
+
+
+  useEffect(() => {
+    localStorage.setItem("optionsValues", JSON.stringify(options));
+  }, [options]);
+
 
   return (
     <div>
       <Description />
-      <Options handleLogOptions={handleLogOptions} />
+      <Options
+        handleLogOptions={handleLogOptions}
+        total={optionsTotal}
+        handleReset={handleReset}
+        onToggleFeedbackVisibility={onToggleFeedbackVisibility}
+      />
       <Notification />
+      <Feedback options={options} total={optionsTotal} />
 
-      
+      {/* <button onClick={onToggleFeedbackVisibility}>
+        {isVisibleFeedback ? "Hide" : "Show"} mini-bar
+      </button> */}
+
       {isVisibleFeedback && (
         <>
           <Feedback options={options} total={optionsTotal} />
