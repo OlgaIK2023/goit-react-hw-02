@@ -2,7 +2,10 @@
 
 const Description = () => {
   return (
-    <div>Description</div>
+    <div>
+      <h1>Sip Happens Cafe</h1>
+      <p>Please leave your feedback regarding our service by selecting one of the options below</p>
+    </div>
   )
 }
 
