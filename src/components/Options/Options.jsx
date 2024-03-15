@@ -3,7 +3,7 @@ import "./Options.module.css";
 
 
 
-const Options = ({handleLogOptions}) => {
+const options = ({handleLogOptions}) => {
   return (
     <div>
       <button onClick = {() => handleLogOptions("Good")}>Good</button>
@@ -14,4 +14,4 @@ const Options = ({handleLogOptions}) => {
   )
 }
 
-export default Options;
+export default options;
