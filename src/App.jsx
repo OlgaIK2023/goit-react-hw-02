@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffect } from "react";
 
 import Description from "./components/Description/Description.jsx";
 import Feedback from "./components/Feedback/Feedback.jsx";
@@ -15,6 +16,10 @@ function App() {
     setOptions({ ...options, [optionName]: options[optionName] + 1 });
   };
 
+  // const handleLogFirstOption = () => {
+  //   setIsVisibleFeedback(true); // Встановлюємо стан isVisibleFeedback в true
+  // };
+
   const optionsTotal = options.good + options.bad + options.neutral;
 
   return (
@@ -23,6 +28,7 @@ function App() {
       <Options handleLogOptions={handleLogOptions} />
       <Notification />
 
+      
       {isVisibleFeedback && (
         <>
           <Feedback options={options} total={optionsTotal} />
