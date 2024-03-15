@@ -12,10 +12,6 @@ function App() {
 
   const handleLogOptions = (optionName) => {
     
-    if (options[optionName] === 2 && optionName === "beer") {
-      alert("Sorry, you excedded the beer limit. Please choose another drink!");
-      return;
-    }
     setOptions({ ...options, [optionName]: options[optionName] + 1 });
   };
 
