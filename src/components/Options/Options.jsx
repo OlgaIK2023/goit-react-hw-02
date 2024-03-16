@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+
 import "./Options.module.css";
 
 // import clsx from "clsx"
@@ -6,22 +6,11 @@ import "./Options.module.css";
 const Options = ({
   handleLogOptions,
   handleReset,
-  onToggleFeedbackVisibility,
   total,
 }) => {
-  useEffect(() => {
-    const onKeyDown = (event) => {
-      if (event.code === "Escape") {
-        onToggleFeedbackVisibility();
-      }
-    };
+  
 
-    window.addEventListener("keydown", onKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", onKeyDown);
-    };
-  }, [onToggleFeedbackVisibility]);
+    
 
   return (
     <div>
