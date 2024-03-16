@@ -29,7 +29,7 @@ function App() {
 
   const handleReset = () => {
     setOptions(initialOptions);
-    // setIsVisibleFeedback(false);
+    setIsVisibleFeedback(false);
   };
 
   
