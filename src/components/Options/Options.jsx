@@ -3,7 +3,7 @@ import "./Options.module.css";
 
 // import clsx from "clsx"
 
-const options = ({
+const Options = ({
   handleLogOptions,
   handleReset,
   onToggleFeedbackVisibility,
@@ -33,4 +33,4 @@ const options = ({
   );
 };
 
-export default options;
+export default Options;
