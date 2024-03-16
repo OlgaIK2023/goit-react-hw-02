@@ -25,9 +25,6 @@ function App() {
     setIsVisibleFeedback(true);
   };
 
-
-  
-
   // const onToggleFeedbackVisibility = () => {
   //  setIsVisibleFeedback(!isVisibleFeedback);
   //  };
@@ -35,19 +32,18 @@ function App() {
 
   const handleReset = () => {
     setOptions(initialOptions);
+    setIsVisibleFeedback(false);
   };
 
-  const onToggleFeedbackVisibility = () => {
-    setIsVisibleFeedback(!isVisibleFeedback);
-  };
+  // const onToggleFeedbackVisibility = () => {
+  //   setIsVisibleFeedback(!isVisibleFeedback);
+  // };
 
   const optionsTotal = options.good + options.bad + options.neutral;
-
 
   useEffect(() => {
     localStorage.setItem("optionsValues", JSON.stringify(options));
   }, [options]);
-
 
   return (
     <div>
@@ -56,21 +52,18 @@ function App() {
         handleLogOptions={handleLogOptions}
         total={optionsTotal}
         handleReset={handleReset}
-        onToggleFeedbackVisibility={onToggleFeedbackVisibility}
       />
-      <Notification />
-      {isVisibleFeedback && <Feedback options={options} total={optionsTotal} />}
+
+      {(optionsTotal === 0) && <Notification />}
+      {optionsTotal > 0 && isVisibleFeedback && (
+        <Feedback options={options} total={optionsTotal} />
+      )}
 
       {/* <Feedback options={options} total={optionsTotal} /> */}
 
       {/* <button onClick={onToggleFeedbackVisibility}>
         {isVisibleFeedback ? "Hide" : "Show"} mini-bar
       </button> */}
-
-
-  
-
-      
     </div>
   );
 }
