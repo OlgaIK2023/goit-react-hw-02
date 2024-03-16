@@ -35,9 +35,7 @@ function App() {
     setIsVisibleFeedback(false);
   };
 
-  // const onToggleFeedbackVisibility = () => {
-  //   setIsVisibleFeedback(!isVisibleFeedback);
-  // };
+  
 
   const optionsTotal = options.good + options.bad + options.neutral;
 
@@ -59,11 +57,7 @@ function App() {
         <Feedback options={options} total={optionsTotal} />
       )}
 
-      {/* <Feedback options={options} total={optionsTotal} /> */}
-
-      {/* <button onClick={onToggleFeedbackVisibility}>
-        {isVisibleFeedback ? "Hide" : "Show"} mini-bar
-      </button> */}
+      
     </div>
   );
 }
