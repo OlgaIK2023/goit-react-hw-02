@@ -39,6 +39,8 @@ function App() {
 
   const optionsTotal = options.good + options.bad + options.neutral;
 
+  const positivePercentageCalculated = Math.round(((options.good + options.neutral) / optionsTotal) * 100);
+
   useEffect(() => {
     localStorage.setItem("optionsValues", JSON.stringify(options));
   }, [options]);
@@ -50,11 +52,12 @@ function App() {
         handleLogOptions={handleLogOptions}
         total={optionsTotal}
         handleReset={handleReset}
+        
       />
 
       {(optionsTotal === 0) && <Notification />}
       {optionsTotal > 0 && isVisibleFeedback && (
-        <Feedback options={options} total={optionsTotal} />
+        <Feedback options={options} total={optionsTotal} positivePercentage={positivePercentageCalculated} />
       )}
 
       
