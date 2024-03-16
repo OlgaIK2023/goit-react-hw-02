@@ -25,14 +25,11 @@ function App() {
     setIsVisibleFeedback(true);
   };
 
-  // const onToggleFeedbackVisibility = () => {
-  //  setIsVisibleFeedback(!isVisibleFeedback);
-  //  };
-  //  // Встановлюємо стан isVisibleFeedback в true
+  
 
   const handleReset = () => {
     setOptions(initialOptions);
-    setIsVisibleFeedback(false);
+    // setIsVisibleFeedback(false);
   };
 
   
@@ -55,7 +52,7 @@ function App() {
         
       />
 
-      {(optionsTotal === 0) && <Notification />}
+{(optionsTotal === 0 && !isVisibleFeedback) && <Notification />}
       {optionsTotal > 0 && isVisibleFeedback && (
         <Feedback options={options} total={optionsTotal} positivePercentage={positivePercentageCalculated} />
       )}
