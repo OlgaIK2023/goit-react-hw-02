@@ -22,7 +22,11 @@ function App() {
 
   const handleLogOptions = (optionName) => {
     setOptions({ ...options, [optionName]: options[optionName] + 1 });
+    setIsVisibleFeedback(true);
   };
+
+
+  
 
   // const onToggleFeedbackVisibility = () => {
   //  setIsVisibleFeedback(!isVisibleFeedback);
@@ -55,17 +59,18 @@ function App() {
         onToggleFeedbackVisibility={onToggleFeedbackVisibility}
       />
       <Notification />
-      <Feedback options={options} total={optionsTotal} />
+      {isVisibleFeedback && <Feedback options={options} total={optionsTotal} />}
+
+      {/* <Feedback options={options} total={optionsTotal} /> */}
 
       {/* <button onClick={onToggleFeedbackVisibility}>
         {isVisibleFeedback ? "Hide" : "Show"} mini-bar
       </button> */}
 
-      {isVisibleFeedback && (
-        <>
-          <Feedback options={options} total={optionsTotal} />
-        </>
-      )}
+
+  
+
+      
     </div>
   );
 }
