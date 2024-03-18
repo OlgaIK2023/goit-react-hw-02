@@ -15,33 +15,19 @@ function App() {
     const parsedOptions = JSON.parse(stringifiedOptions) ?? initialOptions;
     return parsedOptions;
   });
-
-  // const [options, setOptions] = useState({ good: 0, bad: 0, neutral: 0 });
-
-  const [isVisibleFeedback, setIsVisibleFeedback] = useState(false);
-
   const handleLogOptions = (optionName) => {
     setOptions({ ...options, [optionName]: options[optionName] + 1 });
-    setIsVisibleFeedback(true);
   };
-
-  
-
   const handleReset = () => {
     setOptions(initialOptions);
-    setIsVisibleFeedback(false);
   };
-
-  
-
   const optionsTotal = options.good + options.bad + options.neutral;
-
-  const positivePercentageCalculated = Math.round(((options.good + options.neutral) / optionsTotal) * 100);
-
+  const positivePercentageCalculated = Math.round(
+    ((options.good + options.neutral) / optionsTotal) * 100
+  );
   useEffect(() => {
     localStorage.setItem("optionsValues", JSON.stringify(options));
   }, [options]);
-
   return (
     <div>
       <Description />
@@ -49,15 +35,16 @@ function App() {
         handleLogOptions={handleLogOptions}
         total={optionsTotal}
         handleReset={handleReset}
-        
       />
-
-{(optionsTotal === 0 && !isVisibleFeedback) && <Notification />}
-      {optionsTotal > 0 && isVisibleFeedback && (
-        <Feedback options={options} total={optionsTotal} positivePercentage={positivePercentageCalculated} />
+      {optionsTotal > 0 ? (
+        <Feedback
+          options={options}
+          total={optionsTotal}
+          positivePercentage={positivePercentageCalculated}
+        />
+      ) : (
+        <Notification />
       )}
-
-      
     </div>
   );
 }
