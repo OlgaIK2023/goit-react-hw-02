@@ -22,9 +22,11 @@ function App() {
     setOptions(initialOptions);
   };
   const optionsTotal = options.good + options.bad + options.neutral;
-  const positivePercentageCalculated = Math.round(
-    ((options.good + options.neutral) / optionsTotal) * 100
-  );
+  const positivePercentageCalculated =
+    optionsTotal !== 0
+      ? Math.round(((options.good + options.neutral) / optionsTotal) * 100)
+      : 0;
+      
   useEffect(() => {
     localStorage.setItem("optionsValues", JSON.stringify(options));
   }, [options]);
